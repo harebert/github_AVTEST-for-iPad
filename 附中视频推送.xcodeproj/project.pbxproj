@@ -1,0 +1,659 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		8510F8B01562A7B400D180E7 /* ipad_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8510F8AF1562A7B400D180E7 /* ipad_button.png */; };
+		8510F8B21562A99B00D180E7 /* ipad_button_touched.png in Resources */ = {isa = PBXBuildFile; fileRef = 8510F8B11562A99B00D180E7 /* ipad_button_touched.png */; };
+		8510F8B51562AB0800D180E7 /* iphone_button_touched.png in Resources */ = {isa = PBXBuildFile; fileRef = 8510F8B31562AB0800D180E7 /* iphone_button_touched.png */; };
+		8510F8B61562AB0800D180E7 /* iphone_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 8510F8B41562AB0800D180E7 /* iphone_button.png */; };
+		852BC828151778DA0001847B /* AVTESTViewController_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 852BC827151778DA0001847B /* AVTESTViewController_ipad.xib */; };
+		85315EB714D81C0C00F565FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EB614D81C0C00F565FC /* UIKit.framework */; };
+		85315EB914D81C0C00F565FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EB814D81C0C00F565FC /* Foundation.framework */; };
+		85315EBB14D81C0C00F565FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EBA14D81C0C00F565FC /* CoreGraphics.framework */; };
+		85315EC114D81C0C00F565FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85315EBF14D81C0C00F565FC /* InfoPlist.strings */; };
+		85315EC314D81C0D00F565FC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85315EC214D81C0D00F565FC /* main.m */; };
+		85315EC714D81C0D00F565FC /* AVTESTAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 85315EC614D81C0D00F565FC /* AVTESTAppDelegate.m */; };
+		85315ECA14D81C0D00F565FC /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85315EC814D81C0D00F565FC /* MainWindow.xib */; };
+		85315ECD14D81C0D00F565FC /* AVTESTViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85315ECC14D81C0D00F565FC /* AVTESTViewController.m */; };
+		85315ED014D81C0D00F565FC /* AVTESTViewController_iphone.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85315ECE14D81C0D00F565FC /* AVTESTViewController_iphone.xib */; };
+		85315ED814D81C0D00F565FC /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315ED714D81C0D00F565FC /* SenTestingKit.framework */; };
+		85315ED914D81C0D00F565FC /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EB614D81C0C00F565FC /* UIKit.framework */; };
+		85315EDA14D81C0D00F565FC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EB814D81C0C00F565FC /* Foundation.framework */; };
+		85315EDB14D81C0D00F565FC /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EBA14D81C0C00F565FC /* CoreGraphics.framework */; };
+		85315EE314D81C0D00F565FC /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 85315EE114D81C0D00F565FC /* InfoPlist.strings */; };
+		85315EE514D81C0D00F565FC /* AVTESTTests.h in Resources */ = {isa = PBXBuildFile; fileRef = 85315EE414D81C0D00F565FC /* AVTESTTests.h */; };
+		85315EE714D81C0D00F565FC /* AVTESTTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85315EE614D81C0D00F565FC /* AVTESTTests.m */; };
+		85315EF114D81D4D00F565FC /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EF014D81D4D00F565FC /* AVFoundation.framework */; };
+		85315EF314D81D5D00F565FC /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 85315EF214D81D5D00F565FC /* MediaPlayer.framework */; };
+		8539361315177ECE0076AE3B /* MainWindow-iPad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8539361115177ECE0076AE3B /* MainWindow-iPad.xib */; };
+		855A8FF815687AA60033ECA1 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 855A8FF715687AA60033ECA1 /* libsqlite3.dylib */; };
+		856289B4155DFAB20021074D /* LOGO@57.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289B3155DFAB20021074D /* LOGO@57.png */; };
+		856289B7155DFAB50021074D /* LOGO@114.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289B6155DFAB50021074D /* LOGO@114.png */; };
+		856289BD155DFADD0021074D /* Default-Portrait~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289BC155DFADD0021074D /* Default-Portrait~ipad.png */; };
+		856289BF155DFAE10021074D /* Default-Portrait@2x~ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289BE155DFAE10021074D /* Default-Portrait@2x~ipad.png */; };
+		856289C1155DFB630021074D /* LOGO@72.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289C0155DFB630021074D /* LOGO@72.png */; };
+		856289C3155DFB6F0021074D /* LOGO@144.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289C2155DFB6F0021074D /* LOGO@144.png */; };
+		856289C4155DFBB50021074D /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289B8155DFABC0021074D /* Default.png */; };
+		856289C5155DFBBB0021074D /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289BA155DFABF0021074D /* Default@2x.png */; };
+		856289C7155E06FE0021074D /* iphoneBak1.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289C6155E06FE0021074D /* iphoneBak1.png */; };
+		856289C9155E08BB0021074D /* ipadBak1.png in Resources */ = {isa = PBXBuildFile; fileRef = 856289C8155E08BB0021074D /* ipadBak1.png */; };
+		85762D7E1609AEE300B7D407 /* videoback_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 85762D7C1609AEE300B7D407 /* videoback_ipad.png */; };
+		85762D7F1609AEE300B7D407 /* videoback_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 85762D7D1609AEE300B7D407 /* videoback_iphone.png */; };
+		859E29EB14DD34A9004027DE /* LOGO.png in Resources */ = {isa = PBXBuildFile; fileRef = 859E29EA14DD34A9004027DE /* LOGO.png */; };
+		85A5BDA2156C75E3002C78EA /* smallClassCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 85A5BDA1156C75E3002C78EA /* smallClassCell.m */; };
+		85A7FFB91518434C003D7470 /* Video_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85A7FFB81518434C003D7470 /* Video_ipad.xib */; };
+		85AB8DA414DA325A00A61BB5 /* XMLDocument.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB8DA114DA325A00A61BB5 /* XMLDocument.m */; };
+		85AB8DA514DA325A00A61BB5 /* XMLelement.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB8DA314DA325A00A61BB5 /* XMLelement.m */; };
+		85AB8DAE14DB8BA500A61BB5 /* bigClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB8DAC14DB8BA500A61BB5 /* bigClass.m */; };
+		85AB8DB314DBB14D00A61BB5 /* smallClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB8DB114DBB14D00A61BB5 /* smallClass.m */; };
+		85AB8DB414DBB14D00A61BB5 /* smallClass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB8DB214DBB14D00A61BB5 /* smallClass.xib */; };
+		85AB8DBC14DBD12200A61BB5 /* videoList.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB8DBA14DBD12100A61BB5 /* videoList.m */; };
+		85AB8DBD14DBD12200A61BB5 /* videoList.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB8DBB14DBD12200A61BB5 /* videoList.xib */; };
+		85AB8DC014DBD9BA00A61BB5 /* videoContent.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB8DBF14DBD9BA00A61BB5 /* videoContent.m */; };
+		85AB8DCD14DBECEE00A61BB5 /* video.m in Sources */ = {isa = PBXBuildFile; fileRef = 85AB8DCB14DBECEE00A61BB5 /* video.m */; };
+		85AB8DCE14DBECEE00A61BB5 /* video.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85AB8DCC14DBECEE00A61BB5 /* video.xib */; };
+		85C1BF6615177E3A00873D73 /* bigClass.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85C1BF6515177E3A00873D73 /* bigClass.xib */; };
+		85C1BF6815177E5300873D73 /* bigClass_ipad.xib in Resources */ = {isa = PBXBuildFile; fileRef = 85C1BF6715177E5300873D73 /* bigClass_ipad.xib */; };
+		85EBB118160AF45600B464D1 /* image_back.png in Resources */ = {isa = PBXBuildFile; fileRef = 85EBB117160AF45600B464D1 /* image_back.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		85315EDC14D81C0D00F565FC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 85315EA914D81C0C00F565FC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 85315EB114D81C0C00F565FC;
+			remoteInfo = AVTEST;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		8510F8AF1562A7B400D180E7 /* ipad_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_button.png; sourceTree = "<group>"; };
+		8510F8B11562A99B00D180E7 /* ipad_button_touched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipad_button_touched.png; sourceTree = "<group>"; };
+		8510F8B31562AB0800D180E7 /* iphone_button_touched.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_button_touched.png; sourceTree = "<group>"; };
+		8510F8B41562AB0800D180E7 /* iphone_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_button.png; sourceTree = "<group>"; };
+		852BC827151778DA0001847B /* AVTESTViewController_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AVTESTViewController_ipad.xib; sourceTree = "<group>"; };
+		85315EB214D81C0C00F565FC /* 附中视频推送.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "附中视频推送.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85315EB614D81C0C00F565FC /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		85315EB814D81C0C00F565FC /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		85315EBA14D81C0C00F565FC /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		85315EBE14D81C0C00F565FC /* 附中视频推送-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "附中视频推送-Info.plist"; sourceTree = "<group>"; };
+		85315EC014D81C0C00F565FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85315EC214D81C0D00F565FC /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		85315EC414D81C0D00F565FC /* 附中视频推送-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "附中视频推送-Prefix.pch"; sourceTree = "<group>"; };
+		85315EC514D81C0D00F565FC /* AVTESTAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AVTESTAppDelegate.h; path = AVTEST/AVTESTAppDelegate.h; sourceTree = "<group>"; };
+		85315EC614D81C0D00F565FC /* AVTESTAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AVTESTAppDelegate.m; path = AVTEST/AVTESTAppDelegate.m; sourceTree = "<group>"; };
+		85315EC914D81C0D00F565FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		85315ECB14D81C0D00F565FC /* AVTESTViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVTESTViewController.h; sourceTree = "<group>"; };
+		85315ECC14D81C0D00F565FC /* AVTESTViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVTESTViewController.m; sourceTree = "<group>"; };
+		85315ECF14D81C0D00F565FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/AVTESTViewController_iphone.xib; sourceTree = "<group>"; };
+		85315ED614D81C0D00F565FC /* 附中视频推送Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "附中视频推送Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		85315ED714D81C0D00F565FC /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		85315EE014D81C0D00F565FC /* 附中视频推送Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "附中视频推送Tests-Info.plist"; sourceTree = "<group>"; };
+		85315EE214D81C0D00F565FC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		85315EE414D81C0D00F565FC /* AVTESTTests.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AVTESTTests.h; sourceTree = "<group>"; };
+		85315EE614D81C0D00F565FC /* AVTESTTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AVTESTTests.m; sourceTree = "<group>"; };
+		85315EF014D81D4D00F565FC /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		85315EF214D81D5D00F565FC /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		8539361215177ECE0076AE3B /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = "AVTEST/iPad/en.lproj/MainWindow-iPad.xib"; sourceTree = "<group>"; };
+		855A8FF715687AA60033ECA1 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		856289B3155DFAB20021074D /* LOGO@57.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO@57.png"; sourceTree = "<group>"; };
+		856289B6155DFAB50021074D /* LOGO@114.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO@114.png"; sourceTree = "<group>"; };
+		856289B8155DFABC0021074D /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		856289BA155DFABF0021074D /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		856289BC155DFADD0021074D /* Default-Portrait~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait~ipad.png"; sourceTree = "<group>"; };
+		856289BE155DFAE10021074D /* Default-Portrait@2x~ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-Portrait@2x~ipad.png"; sourceTree = "<group>"; };
+		856289C0155DFB630021074D /* LOGO@72.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO@72.png"; sourceTree = "<group>"; };
+		856289C2155DFB6F0021074D /* LOGO@144.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LOGO@144.png"; sourceTree = "<group>"; };
+		856289C6155E06FE0021074D /* iphoneBak1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphoneBak1.png; sourceTree = "<group>"; };
+		856289C8155E08BB0021074D /* ipadBak1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ipadBak1.png; sourceTree = "<group>"; };
+		85762D7C1609AEE300B7D407 /* videoback_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videoback_ipad.png; sourceTree = "<group>"; };
+		85762D7D1609AEE300B7D407 /* videoback_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = videoback_iphone.png; sourceTree = "<group>"; };
+		859E29EA14DD34A9004027DE /* LOGO.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = LOGO.png; sourceTree = "<group>"; };
+		85A5BDA0156C75E3002C78EA /* smallClassCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smallClassCell.h; sourceTree = "<group>"; };
+		85A5BDA1156C75E3002C78EA /* smallClassCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smallClassCell.m; sourceTree = "<group>"; };
+		85A7FFB81518434C003D7470 /* Video_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Video_ipad.xib; sourceTree = "<group>"; };
+		85AB8DA014DA325A00A61BB5 /* XMLDocument.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLDocument.h; path = AVTEST/XMLDocument.h; sourceTree = "<group>"; };
+		85AB8DA114DA325A00A61BB5 /* XMLDocument.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLDocument.m; path = AVTEST/XMLDocument.m; sourceTree = "<group>"; };
+		85AB8DA214DA325A00A61BB5 /* XMLelement.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = XMLelement.h; path = AVTEST/XMLelement.h; sourceTree = "<group>"; };
+		85AB8DA314DA325A00A61BB5 /* XMLelement.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = XMLelement.m; path = AVTEST/XMLelement.m; sourceTree = "<group>"; };
+		85AB8DAB14DB8BA500A61BB5 /* bigClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = bigClass.h; sourceTree = "<group>"; };
+		85AB8DAC14DB8BA500A61BB5 /* bigClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = bigClass.m; sourceTree = "<group>"; };
+		85AB8DB014DBB14C00A61BB5 /* smallClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = smallClass.h; sourceTree = "<group>"; };
+		85AB8DB114DBB14D00A61BB5 /* smallClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = smallClass.m; sourceTree = "<group>"; };
+		85AB8DB214DBB14D00A61BB5 /* smallClass.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = smallClass.xib; sourceTree = "<group>"; };
+		85AB8DB914DBD12100A61BB5 /* videoList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoList.h; sourceTree = "<group>"; };
+		85AB8DBA14DBD12100A61BB5 /* videoList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoList.m; sourceTree = "<group>"; };
+		85AB8DBB14DBD12200A61BB5 /* videoList.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = videoList.xib; sourceTree = "<group>"; };
+		85AB8DBE14DBD9BA00A61BB5 /* videoContent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = videoContent.h; sourceTree = "<group>"; };
+		85AB8DBF14DBD9BA00A61BB5 /* videoContent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = videoContent.m; sourceTree = "<group>"; };
+		85AB8DCA14DBECEE00A61BB5 /* video.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = video.h; sourceTree = "<group>"; };
+		85AB8DCB14DBECEE00A61BB5 /* video.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = video.m; sourceTree = "<group>"; };
+		85AB8DCC14DBECEE00A61BB5 /* video.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = video.xib; sourceTree = "<group>"; };
+		85C1BF6515177E3A00873D73 /* bigClass.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = bigClass.xib; sourceTree = "<group>"; };
+		85C1BF6715177E5300873D73 /* bigClass_ipad.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = bigClass_ipad.xib; path = AVTEST/bigClass_ipad.xib; sourceTree = "<group>"; };
+		85EBB117160AF45600B464D1 /* image_back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = image_back.png; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		85315EAF14D81C0C00F565FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				855A8FF815687AA60033ECA1 /* libsqlite3.dylib in Frameworks */,
+				85315EF314D81D5D00F565FC /* MediaPlayer.framework in Frameworks */,
+				85315EF114D81D4D00F565FC /* AVFoundation.framework in Frameworks */,
+				85315EB714D81C0C00F565FC /* UIKit.framework in Frameworks */,
+				85315EB914D81C0C00F565FC /* Foundation.framework in Frameworks */,
+				85315EBB14D81C0C00F565FC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85315ED214D81C0D00F565FC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85315ED814D81C0D00F565FC /* SenTestingKit.framework in Frameworks */,
+				85315ED914D81C0D00F565FC /* UIKit.framework in Frameworks */,
+				85315EDA14D81C0D00F565FC /* Foundation.framework in Frameworks */,
+				85315EDB14D81C0D00F565FC /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		85315EA714D81C0C00F565FC = {
+			isa = PBXGroup;
+			children = (
+				855A8FF715687AA60033ECA1 /* libsqlite3.dylib */,
+				856289C2155DFB6F0021074D /* LOGO@144.png */,
+				856289C0155DFB630021074D /* LOGO@72.png */,
+				856289BE155DFAE10021074D /* Default-Portrait@2x~ipad.png */,
+				856289BC155DFADD0021074D /* Default-Portrait~ipad.png */,
+				856289BA155DFABF0021074D /* Default@2x.png */,
+				856289B8155DFABC0021074D /* Default.png */,
+				85EBB117160AF45600B464D1 /* image_back.png */,
+				856289B6155DFAB50021074D /* LOGO@114.png */,
+				856289B3155DFAB20021074D /* LOGO@57.png */,
+				85762D7C1609AEE300B7D407 /* videoback_ipad.png */,
+				85762D7D1609AEE300B7D407 /* videoback_iphone.png */,
+				8539361015177ECC0076AE3B /* iPad */,
+				859E29EA14DD34A9004027DE /* LOGO.png */,
+				85AB8DA014DA325A00A61BB5 /* XMLDocument.h */,
+				85AB8DA114DA325A00A61BB5 /* XMLDocument.m */,
+				85AB8DA214DA325A00A61BB5 /* XMLelement.h */,
+				85AB8DA314DA325A00A61BB5 /* XMLelement.m */,
+				85315EC514D81C0D00F565FC /* AVTESTAppDelegate.h */,
+				85315EC614D81C0D00F565FC /* AVTESTAppDelegate.m */,
+				85C1BF6715177E5300873D73 /* bigClass_ipad.xib */,
+				85315EBC14D81C0C00F565FC /* iphone */,
+				85315EDE14D81C0D00F565FC /* AVTESTTests */,
+				85315EB514D81C0C00F565FC /* Frameworks */,
+				85315EB314D81C0C00F565FC /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		85315EB314D81C0C00F565FC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				85315EB214D81C0C00F565FC /* 附中视频推送.app */,
+				85315ED614D81C0D00F565FC /* 附中视频推送Tests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		85315EB514D81C0C00F565FC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				85315EF214D81D5D00F565FC /* MediaPlayer.framework */,
+				85315EF014D81D4D00F565FC /* AVFoundation.framework */,
+				85315EB614D81C0C00F565FC /* UIKit.framework */,
+				85315EB814D81C0C00F565FC /* Foundation.framework */,
+				85315EBA14D81C0C00F565FC /* CoreGraphics.framework */,
+				85315ED714D81C0D00F565FC /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		85315EBC14D81C0C00F565FC /* iphone */ = {
+			isa = PBXGroup;
+			children = (
+				85315EC814D81C0D00F565FC /* MainWindow.xib */,
+				85AB8DAB14DB8BA500A61BB5 /* bigClass.h */,
+				85AB8DAC14DB8BA500A61BB5 /* bigClass.m */,
+				85C1BF6515177E3A00873D73 /* bigClass.xib */,
+				85AB8DB014DBB14C00A61BB5 /* smallClass.h */,
+				85AB8DB114DBB14D00A61BB5 /* smallClass.m */,
+				85AB8DB214DBB14D00A61BB5 /* smallClass.xib */,
+				85AB8DB914DBD12100A61BB5 /* videoList.h */,
+				85A5BDA0156C75E3002C78EA /* smallClassCell.h */,
+				85A5BDA1156C75E3002C78EA /* smallClassCell.m */,
+				85AB8DBA14DBD12100A61BB5 /* videoList.m */,
+				85AB8DBB14DBD12200A61BB5 /* videoList.xib */,
+				85AB8DCA14DBECEE00A61BB5 /* video.h */,
+				85AB8DCB14DBECEE00A61BB5 /* video.m */,
+				85AB8DCC14DBECEE00A61BB5 /* video.xib */,
+				85A7FFB81518434C003D7470 /* Video_ipad.xib */,
+				85AB8DBE14DBD9BA00A61BB5 /* videoContent.h */,
+				85AB8DBF14DBD9BA00A61BB5 /* videoContent.m */,
+				85315ECB14D81C0D00F565FC /* AVTESTViewController.h */,
+				85315ECC14D81C0D00F565FC /* AVTESTViewController.m */,
+				85315ECE14D81C0D00F565FC /* AVTESTViewController_iphone.xib */,
+				852BC827151778DA0001847B /* AVTESTViewController_ipad.xib */,
+				85315EBD14D81C0C00F565FC /* Supporting Files */,
+			);
+			name = iphone;
+			path = AVTEST;
+			sourceTree = "<group>";
+		};
+		85315EBD14D81C0C00F565FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				8510F8B31562AB0800D180E7 /* iphone_button_touched.png */,
+				8510F8B41562AB0800D180E7 /* iphone_button.png */,
+				8510F8B11562A99B00D180E7 /* ipad_button_touched.png */,
+				8510F8AF1562A7B400D180E7 /* ipad_button.png */,
+				856289C8155E08BB0021074D /* ipadBak1.png */,
+				856289C6155E06FE0021074D /* iphoneBak1.png */,
+				85315EBE14D81C0C00F565FC /* 附中视频推送-Info.plist */,
+				85315EBF14D81C0C00F565FC /* InfoPlist.strings */,
+				85315EC214D81C0D00F565FC /* main.m */,
+				85315EC414D81C0D00F565FC /* 附中视频推送-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		85315EDE14D81C0D00F565FC /* AVTESTTests */ = {
+			isa = PBXGroup;
+			children = (
+				85315EE414D81C0D00F565FC /* AVTESTTests.h */,
+				85315EE614D81C0D00F565FC /* AVTESTTests.m */,
+				85315EDF14D81C0D00F565FC /* Supporting Files */,
+			);
+			path = AVTESTTests;
+			sourceTree = "<group>";
+		};
+		85315EDF14D81C0D00F565FC /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				85315EE014D81C0D00F565FC /* 附中视频推送Tests-Info.plist */,
+				85315EE114D81C0D00F565FC /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8539361015177ECC0076AE3B /* iPad */ = {
+			isa = PBXGroup;
+			children = (
+				8539361115177ECE0076AE3B /* MainWindow-iPad.xib */,
+			);
+			name = iPad;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		85315EB114D81C0C00F565FC /* 附中视频推送 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85315EEA14D81C0D00F565FC /* Build configuration list for PBXNativeTarget "附中视频推送" */;
+			buildPhases = (
+				85315EAE14D81C0C00F565FC /* Sources */,
+				85315EAF14D81C0C00F565FC /* Frameworks */,
+				85315EB014D81C0C00F565FC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "附中视频推送";
+			productName = AVTEST;
+			productReference = 85315EB214D81C0C00F565FC /* 附中视频推送.app */;
+			productType = "com.apple.product-type.application";
+		};
+		85315ED514D81C0D00F565FC /* 附中视频推送Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 85315EED14D81C0D00F565FC /* Build configuration list for PBXNativeTarget "附中视频推送Tests" */;
+			buildPhases = (
+				85315ED114D81C0D00F565FC /* Sources */,
+				85315ED214D81C0D00F565FC /* Frameworks */,
+				85315ED314D81C0D00F565FC /* Resources */,
+				85315ED414D81C0D00F565FC /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				85315EDD14D81C0D00F565FC /* PBXTargetDependency */,
+			);
+			name = "附中视频推送Tests";
+			productName = AVTESTTests;
+			productReference = 85315ED614D81C0D00F565FC /* 附中视频推送Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		85315EA914D81C0C00F565FC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = sfls;
+			};
+			buildConfigurationList = 85315EAC14D81C0C00F565FC /* Build configuration list for PBXProject "附中视频推送" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 85315EA714D81C0C00F565FC;
+			productRefGroup = 85315EB314D81C0C00F565FC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				85315EB114D81C0C00F565FC /* 附中视频推送 */,
+				85315ED514D81C0D00F565FC /* 附中视频推送Tests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		85315EB014D81C0C00F565FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85315EC114D81C0C00F565FC /* InfoPlist.strings in Resources */,
+				85315ECA14D81C0D00F565FC /* MainWindow.xib in Resources */,
+				85315ED014D81C0D00F565FC /* AVTESTViewController_iphone.xib in Resources */,
+				85AB8DB414DBB14D00A61BB5 /* smallClass.xib in Resources */,
+				85AB8DBD14DBD12200A61BB5 /* videoList.xib in Resources */,
+				85AB8DCE14DBECEE00A61BB5 /* video.xib in Resources */,
+				859E29EB14DD34A9004027DE /* LOGO.png in Resources */,
+				852BC828151778DA0001847B /* AVTESTViewController_ipad.xib in Resources */,
+				85C1BF6615177E3A00873D73 /* bigClass.xib in Resources */,
+				85C1BF6815177E5300873D73 /* bigClass_ipad.xib in Resources */,
+				8539361315177ECE0076AE3B /* MainWindow-iPad.xib in Resources */,
+				85A7FFB91518434C003D7470 /* Video_ipad.xib in Resources */,
+				856289B4155DFAB20021074D /* LOGO@57.png in Resources */,
+				856289B7155DFAB50021074D /* LOGO@114.png in Resources */,
+				856289BD155DFADD0021074D /* Default-Portrait~ipad.png in Resources */,
+				856289BF155DFAE10021074D /* Default-Portrait@2x~ipad.png in Resources */,
+				856289C1155DFB630021074D /* LOGO@72.png in Resources */,
+				856289C3155DFB6F0021074D /* LOGO@144.png in Resources */,
+				856289C4155DFBB50021074D /* Default.png in Resources */,
+				856289C5155DFBBB0021074D /* Default@2x.png in Resources */,
+				856289C7155E06FE0021074D /* iphoneBak1.png in Resources */,
+				856289C9155E08BB0021074D /* ipadBak1.png in Resources */,
+				8510F8B01562A7B400D180E7 /* ipad_button.png in Resources */,
+				8510F8B21562A99B00D180E7 /* ipad_button_touched.png in Resources */,
+				8510F8B51562AB0800D180E7 /* iphone_button_touched.png in Resources */,
+				8510F8B61562AB0800D180E7 /* iphone_button.png in Resources */,
+				85762D7E1609AEE300B7D407 /* videoback_ipad.png in Resources */,
+				85762D7F1609AEE300B7D407 /* videoback_iphone.png in Resources */,
+				85EBB118160AF45600B464D1 /* image_back.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85315ED314D81C0D00F565FC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85315EE314D81C0D00F565FC /* InfoPlist.strings in Resources */,
+				85315EE514D81C0D00F565FC /* AVTESTTests.h in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		85315ED414D81C0D00F565FC /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		85315EAE14D81C0C00F565FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85315EC314D81C0D00F565FC /* main.m in Sources */,
+				85315EC714D81C0D00F565FC /* AVTESTAppDelegate.m in Sources */,
+				85315ECD14D81C0D00F565FC /* AVTESTViewController.m in Sources */,
+				85AB8DA414DA325A00A61BB5 /* XMLDocument.m in Sources */,
+				85AB8DA514DA325A00A61BB5 /* XMLelement.m in Sources */,
+				85AB8DAE14DB8BA500A61BB5 /* bigClass.m in Sources */,
+				85AB8DB314DBB14D00A61BB5 /* smallClass.m in Sources */,
+				85AB8DBC14DBD12200A61BB5 /* videoList.m in Sources */,
+				85AB8DC014DBD9BA00A61BB5 /* videoContent.m in Sources */,
+				85AB8DCD14DBECEE00A61BB5 /* video.m in Sources */,
+				85A5BDA2156C75E3002C78EA /* smallClassCell.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		85315ED114D81C0D00F565FC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				85315EE714D81C0D00F565FC /* AVTESTTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		85315EDD14D81C0D00F565FC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 85315EB114D81C0C00F565FC /* 附中视频推送 */;
+			targetProxy = 85315EDC14D81C0D00F565FC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		85315EBF14D81C0C00F565FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85315EC014D81C0C00F565FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		85315EC814D81C0D00F565FC /* MainWindow.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85315EC914D81C0D00F565FC /* en */,
+			);
+			name = MainWindow.xib;
+			sourceTree = "<group>";
+		};
+		85315ECE14D81C0D00F565FC /* AVTESTViewController_iphone.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85315ECF14D81C0D00F565FC /* en */,
+			);
+			name = AVTESTViewController_iphone.xib;
+			sourceTree = "<group>";
+		};
+		85315EE114D81C0D00F565FC /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				85315EE214D81C0D00F565FC /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		8539361115177ECE0076AE3B /* MainWindow-iPad.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8539361215177ECE0076AE3B /* en */,
+			);
+			name = "MainWindow-iPad.xib";
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		85315EE814D81C0D00F565FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haobin Zhu (54N4Q27CHB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haobin Zhu (54N4Q27CHB)";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				PROVISIONING_PROFILE = "7E99D32C-E959-45F9-9CB9-485929D7E023";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7E99D32C-E959-45F9-9CB9-485929D7E023";
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		85315EE914D81C0D00F565FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haobin Zhu (54N4Q27CHB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Haobin Zhu";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvmgcc42;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 3.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "7E99D32C-E959-45F9-9CB9-485929D7E023";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "44092CE9-944E-4648-A077-8B430610E976";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		85315EEB14D81C0D00F565FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haobin Zhu (54N4Q27CHB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haobin Zhu (54N4Q27CHB)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AVTEST/附中视频推送-Prefix.pch";
+				INFOPLIST_FILE = "AVTEST/附中视频推送-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "附中视频推送";
+				PROVISIONING_PROFILE = "7E99D32C-E959-45F9-9CB9-485929D7E023";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7E99D32C-E959-45F9-9CB9-485929D7E023";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		85315EEC14D81C0D00F565FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer: Haobin Zhu (54N4Q27CHB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Haobin Zhu (54N4Q27CHB)";
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AVTEST/附中视频推送-Prefix.pch";
+				INFOPLIST_FILE = "AVTEST/附中视频推送-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PRODUCT_NAME = "附中视频推送";
+				PROVISIONING_PROFILE = "7E99D32C-E959-45F9-9CB9-485929D7E023";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "7E99D32C-E959-45F9-9CB9-485929D7E023";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		85315EEE14D81C0D00F565FC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AVTEST.app/AVTEST";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AVTEST/AVTEST-Prefix.pch";
+				INFOPLIST_FILE = "AVTESTTests/附中视频推送Tests-Info.plist";
+				PRODUCT_NAME = "附中视频推送Tests";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		85315EEF14D81C0D00F565FC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/AVTEST.app/AVTEST";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "AVTEST/AVTEST-Prefix.pch";
+				INFOPLIST_FILE = "AVTESTTests/附中视频推送Tests-Info.plist";
+				PRODUCT_NAME = "附中视频推送Tests";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		85315EAC14D81C0C00F565FC /* Build configuration list for PBXProject "附中视频推送" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85315EE814D81C0D00F565FC /* Debug */,
+				85315EE914D81C0D00F565FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85315EEA14D81C0D00F565FC /* Build configuration list for PBXNativeTarget "附中视频推送" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85315EEB14D81C0D00F565FC /* Debug */,
+				85315EEC14D81C0D00F565FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		85315EED14D81C0D00F565FC /* Build configuration list for PBXNativeTarget "附中视频推送Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				85315EEE14D81C0D00F565FC /* Debug */,
+				85315EEF14D81C0D00F565FC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 85315EA914D81C0C00F565FC /* Project object */;
+}
