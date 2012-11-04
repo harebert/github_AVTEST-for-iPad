@@ -130,6 +130,9 @@
         [self.view addSubview:viewButton];
         [self.view addSubview:imageView];
     }
+    UIBarButtonItem *goToComment=[[UIBarButtonItem alloc]initWithTitle:@"评论" style:UIBarButtonItemStyleBordered target:self action:@selector(goComment)];
+    
+    self.navigationItem.rightBarButtonItem=goToComment;
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
 }
@@ -244,5 +247,11 @@
     isflage=!isflage;
     [super.navigationController setNavigationBarHidden:isflage animated:TRUE];
     //[super.navigationController setToolbarHidden:isflage animated:TRUE];
+}
+
+-(void)goComment{
+    videoComment *newComment=[[videoComment alloc]init];
+    newComment.thenewVideoContent=self.newVideoContent;
+    [self.navigationController pushViewController:newComment animated:YES];
 }
 @end

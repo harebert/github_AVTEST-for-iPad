@@ -11,7 +11,7 @@
 #import "video.h"
 @implementation videoList
 @synthesize listOfVideo,xmlDocument,videoContentList,mySmallClass;
-@synthesize dataFilePath,databaseExisted;
+@synthesize dataFilePath,databaseExisted,bigClassName,smallClassName;
 -(void)xmlDocumentDelegateParsingFinished:(XMLDocument *)paramSender{
     dataFilePath=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"database.sqlite"];
     listOfVideo=self.xmlDocument.rootElement.children;//这是所有的vido层面的群
@@ -323,6 +323,8 @@
     {
     videoContent *newVideoContent=[self.videoContentList objectAtIndex:[indexPath row]];
     video *newVideo=[[video alloc]init];
+        newVideoContent.bigClassName=self.bigClassName;
+        newVideoContent.smallClassName=self.smallClassName;
     newVideo.newVideoContent=newVideoContent;
     newVideo.title=newVideoContent.videoName;
     [self.navigationController pushViewController:newVideo animated:YES];
@@ -331,6 +333,8 @@
     {
         videoContent *newVideoContent=[self.videoContentList objectAtIndex:[indexPath row]];
         video *newVideo=[[video alloc]initWithNibName:@"Video_ipad" bundle:nil];
+        newVideoContent.bigClassName=self.bigClassName;
+        newVideoContent.smallClassName=self.smallClassName;
         newVideo.newVideoContent=newVideoContent;
         newVideo.title=newVideoContent.videoName;
         [self.navigationController pushViewController:newVideo animated:YES];

@@ -10,6 +10,7 @@
 #import "videoContent.h"
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
+#import "videoComment.h"
 @interface video : UIViewController {
     UILabel *videoName;
     UITextView *videoInfo;

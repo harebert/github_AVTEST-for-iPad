@@ -16,9 +16,11 @@
     sqlite3 *db;
     BOOL databaseExisted;//bigclass数据库是否存在
     NSString *dataFilePath;
+    NSString *bigClassName;
 }
 @property (nonatomic, retain)XMLDocument *xmlDocument;
 @property (nonatomic, retain)NSMutableArray *smallClassList;
 @property(nonatomic,assign)BOOL databaseExisted;
 @property (nonatomic, retain)NSString *dataFilePath;
+@property (nonatomic, retain)NSString *bigClassName;
 @end

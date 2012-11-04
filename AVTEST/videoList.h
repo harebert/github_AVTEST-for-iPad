@@ -18,6 +18,8 @@
     sqlite3 *db;
     BOOL databaseExisted;//bigclass数据库是否存在
     NSString *dataFilePath;
+    NSString *bigClassName;
+    NSString *smallClassName;
 }
 @property(nonatomic,retain)XMLDocument *xmlDocument;
 @property(nonatomic,retain)NSMutableArray *listOfVideo;
@@ -25,4 +27,6 @@
 @property(nonatomic,retain)NSString *mySmallClass;
 @property(nonatomic,assign)BOOL databaseExisted;//bigclass数据库是否存在
 @property(nonatomic,retain)NSString *dataFilePath;
+@property(nonatomic,retain)NSString *bigClassName;
+@property(nonatomic,retain)NSString *smallClassName;
 @end

@@ -9,7 +9,7 @@
 #import "smallClass.h"
 #import "videoList.h"
 @implementation smallClass
-@synthesize xmlDocument,smallClassList,databaseExisted,dataFilePath;
+@synthesize xmlDocument,smallClassList,databaseExisted,dataFilePath,bigClassName;
 #pragma theXmlParser
 -(void)xmlDocumentDelegateParsingFinished:(XMLDocument *)paramSender{
     //smallClassList=self.xmlDocument.rootElement.children;
@@ -257,6 +257,8 @@
     videoList *newVideoList=[[videoList alloc]init];
     //newVideoList.mySmallClass=tempelement.text;
     newVideoList.title=[self.smallClassList objectAtIndex:[indexPath row]];
+    newVideoList.bigClassName=self.bigClassName;
+    newVideoList.smallClassName=[self.smallClassList objectAtIndex:[indexPath row]];
     [self.navigationController pushViewController:newVideoList animated:YES];
     
 }

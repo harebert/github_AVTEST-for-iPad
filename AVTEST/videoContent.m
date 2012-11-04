@@ -9,7 +9,7 @@
 #import "videoContent.h"
 
 @implementation videoContent
-@synthesize videoInfo,videoName,videoPath,videoisHot,hotImage,videoId;
+@synthesize videoInfo,videoName,videoPath,videoisHot,hotImage,videoId,bigClassName,smallClassName;
 - (id)init
 {
     self = [super init];
