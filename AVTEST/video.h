@@ -11,16 +11,20 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "videoComment.h"
-@interface video : UIViewController {
+#import "DownImage.h"
+#import <QuartzCore/QuartzCore.h>
+@interface video : UIViewController <DownloaderDelegate>{
     UILabel *videoName;
     UITextView *videoInfo;
     videoContent *newVideoContent;
     MPMoviePlayerController *moviePlayer;
     BOOL isflage;
+    UIImageView *videoImageView;
 }
 - (IBAction)clickToPlay:(id)sender;
 @property (nonatomic, retain) IBOutlet UITextView *videoInfo;
 @property (nonatomic, retain) MPMoviePlayerController *moviePlayer;
 @property (nonatomic, retain) IBOutlet UILabel *videoName;
 @property (nonatomic, retain)videoContent *newVideoContent;
+@property (nonatomic, retain) UIImageView *videoImageView;
 @end

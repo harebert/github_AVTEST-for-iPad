@@ -10,7 +10,8 @@
 #import "XMLelement.h"
 #import "XMLDocument.h"
 #import "sqlite3.h"
-@interface smallClass : UITableViewController<XMLDocumentDelegate>{
+#import "DownImage.h"
+@interface smallClass : UITableViewController<XMLDocumentDelegate,DownloaderDelegate>{
     XMLDocument *xmlDocument;
     NSMutableArray *smallClassList;
     sqlite3 *db;

@@ -16,6 +16,7 @@
     UIScrollView *scrowView;
     sqlite3 *db;
     NSString *dataFilePath;
+    float mainHeight;
     BOOL databaseExisted;//bigclass数据库是否存在
 }
 - (IBAction)toSmallClass:(id)sender withTag:(int)tag;

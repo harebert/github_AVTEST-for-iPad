@@ -48,6 +48,10 @@
 //下载完成后将图片写入黑盒子，
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection
 {
+    NSLog(@"!!!!!!!!!!%u!!!!!!!!!!!!!!",self.activeDownload.length);
+    if (self.activeDownload.length>5141) {
+        
+    
     UIImage *image = [[UIImage alloc] initWithData:self.activeDownload];
     newDownImage=image;
     NSArray *documentPaths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
@@ -61,5 +65,6 @@
     self.imageConnection = nil;
     [delegate appImageDidLoad:imageViewIndex urlImage:urlpath imageName:[array lastObject]]; //将视图tag和地址派发给实现类
     //[image release];
+        }
 }
 @end

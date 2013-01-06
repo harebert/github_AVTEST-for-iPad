@@ -260,16 +260,40 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //NSLog(@"in cell the number is %i",videoContentList.count);
-    static NSString *CellIdentifier = @"Cell";
-    NSLog(@"cell is %i",[indexPath row]);
+    
+    NSLog(@"in cell the number is %@",indexPath);
+    static NSString *CellIdentifier = @"listCell";
+    //NSLog(@"cell is %i",[indexPath row]);
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
-    }
+    //if (cell == nil) {
+        //cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+    //}
     
     videoContent *newVideoContent4TableView=[videoContentList objectAtIndex:[indexPath row]];
-    cell.textLabel.text=newVideoContent4TableView.videoName;
+    UILabel *newLabel=(UILabel *)[cell viewWithTag:1];
+    newLabel.text=newVideoContent4TableView.videoName;
+    
+    //下载图片开始
+    DownImage *newdownLoad=[[DownImage alloc]init];
+    [newdownLoad setDelegate:self];
+    newdownLoad.imageUrl=[NSString stringWithFormat:@"http://teacher.sfls.cn/sflsapp/video/movie/images/%@", [newVideoContent4TableView.videoPath stringByReplacingOccurrencesOfString:@"m3u8" withString:@"jpg"]];
+    newdownLoad.imageViewIndex=indexPath.row;
+    [newdownLoad startDownload];
+    
+    //添加转轮
+    UIImageView *newimageView=(UIImageView *)[cell viewWithTag:2];
+    //NSLog(@"width=%f",[cell viewWithTag:2].frame.size.width);
+    newimageView.layer.borderColor=[UIColor grayColor].CGColor;
+    newimageView.layer.borderWidth=3;
+    newimageView.layer.cornerRadius=5;
+    [newimageView.layer setMasksToBounds:YES];
+    loadingImage=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    loadingImage.frame=CGRectMake(25, 17.5, 20, 20);
+    [loadingImage startAnimating];
+    //[newimageView addSubview:loadingImage];
+    
+    
+    
     return cell;
     // Configure the cell...
     
@@ -319,28 +343,53 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) 
-    {
-    videoContent *newVideoContent=[self.videoContentList objectAtIndex:[indexPath row]];
-    video *newVideo=[[video alloc]init];
-        newVideoContent.bigClassName=self.bigClassName;
-        newVideoContent.smallClassName=self.smallClassName;
-    newVideo.newVideoContent=newVideoContent;
-    newVideo.title=newVideoContent.videoName;
-    [self.navigationController pushViewController:newVideo animated:YES];
+    //[self performSegueWithIdentifier:@"goVideo" sender:self];
     }
-    else
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    int row=[self.tableView indexPathForCell:sender].row;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone)
     {
-        videoContent *newVideoContent=[self.videoContentList objectAtIndex:[indexPath row]];
-        video *newVideo=[[video alloc]initWithNibName:@"Video_ipad" bundle:nil];
+        videoContent *newVideoContent=[self.videoContentList objectAtIndex:row];
+        video *newVideo=(video *)[segue destinationViewController];
         newVideoContent.bigClassName=self.bigClassName;
         newVideoContent.smallClassName=self.smallClassName;
         newVideo.newVideoContent=newVideoContent;
         newVideo.title=newVideoContent.videoName;
-        [self.navigationController pushViewController:newVideo animated:YES];
+        //[self.navigationController pushViewController:newVideo animated:YES];
     }
-
+    else
+    {
+        videoContent *newVideoContent=[self.videoContentList objectAtIndex:row];
+        video *newVideo=(video *)[segue destinationViewController];
+        newVideoContent.bigClassName=self.bigClassName;
+        newVideoContent.smallClassName=self.smallClassName;
+        newVideo.newVideoContent=newVideoContent;
+        newVideo.title=newVideoContent.videoName;
+        //[self.navigationController pushViewController:newVideo animated:YES];
+    }
+    
+    
 
 }
+
+#pragma downloadimage degegate
+-(void)appImageDidLoad:(NSInteger)indexTag urlImage:(NSString *)imageUrl imageName:(NSString *)imageName{
+    NSIndexPath *newPath=[NSIndexPath indexPathForRow:indexTag inSection:0];
+    UITableViewCell *newCell=[self.tableView cellForRowAtIndexPath:newPath];
+    UIImageView *newiMageView=(UIImageView *)[newCell viewWithTag:2];
+    //UIActivityIndicatorView *newActView=(UIActivityIndicatorView *)[newiMageView.subviews objectAtIndex:0];
+    //newActView.hidden=YES;
+    //[newActView stopAnimating];
+    newiMageView.image=[UIImage imageWithContentsOfFile:imageUrl];
+    newiMageView.layer.opacity=0;
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:1.0];
+    newiMageView.layer.opacity=1;
+    [UIView commitAnimations];
+    
+    NSLog(@"%@ is ok path=%@",newPath,imageUrl);
+    }
 
 @end

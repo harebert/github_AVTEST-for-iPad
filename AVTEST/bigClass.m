@@ -50,7 +50,15 @@ if (!databaseExisted)
         
     int i;
         if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-                    self.scrowView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"iphoneBak1.png"]];
+            if (mainHeight==568.f) {
+                NSLog(@"its iphone5");
+                self.scrowView.frame=CGRectMake(self.scrowView.frame.origin.x,self.scrowView.frame.origin.y , self.scrowView.frame.size.width, self.scrowView.frame.size.height+176);
+                self.scrowView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"iphoneBak1@1136.png"]];
+            }
+            else{
+                NSLog(@"its iphone4");
+                self.scrowView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"iphoneBak1.png"]];
+            }
             for (i=0; i<=[temparray count]-1; i++) {
         XMLelement *tempele=[self.bigClassList objectAtIndex:i];
         UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
@@ -65,9 +73,9 @@ if (!databaseExisted)
         [button addTarget:self action:@selector(toSmallClass:withTag:) forControlEvents:UIControlEventTouchUpInside];
         [self.scrowView addSubview:button];
         
-        NSString *a=[tempid objectForKey:@"id"];
-        NSLog(@"%@,%@",a,[a floatValue]);
-        NSLog(@"%@",a);
+        //NSString *a=[tempid objectForKey:@"id"];
+        //NSLog(@"%@,%@",a,[a floatValue]);
+        //NSLog(@"%@",a);
         //NSLog(@"the id is %@ ",[[tempid objectForKey:@"id"] intValue]);
         
             }
@@ -90,9 +98,9 @@ if (!databaseExisted)
            [button addTarget:self action:@selector(toSmallClass:withTag:) forControlEvents:UIControlEventTouchUpInside];
            [self.scrowView addSubview:button];
            
-           NSString *a=[tempid objectForKey:@"id"];
-           NSLog(@"%@,%@",a,[a floatValue]);
-           NSLog(@"%@",a);
+           //NSString *a=[tempid objectForKey:@"id"];
+           //NSLog(@"%@,%@",a,[a floatValue]);
+           //NSLog(@"%@",a);
            //NSLog(@"the id is %@ ",[[tempid objectForKey:@"id"] intValue]);
            
                 }
@@ -153,9 +161,11 @@ else
 
 - (void)viewDidLoad
 {
-    //sleep(5);
+    mainHeight=[UIScreen mainScreen].bounds.size.height;
+    sleep(5);
 //获取数据库内部数据，如果获取不成功则parse xml
     //NSString *dataFilePath;
+    self.title=@"附中视频";
     dataFilePath=[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:@"database.sqlite"];
     if (sqlite3_open([dataFilePath UTF8String], &db)!=SQLITE_OK) 
     {//打开数据库失败
@@ -182,10 +192,20 @@ else
             while (sqlite3_step(statment2)==SQLITE_ROW) 
             {
                 if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-                    self.scrowView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"iphoneBak1.png"]];
+                    if (mainHeight==568.f) {
+                        NSLog(@"its iphone5");
+                        self.scrowView.frame=CGRectMake(self.scrowView.frame.origin.x,self.scrowView.frame.origin.y , self.scrowView.frame.size.width, self.scrowView.frame.size.height+176);
+                        self.scrowView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"iphoneBak1@1136.png"]];
+                    }
+                    else{
+                        NSLog(@"its iphone4");
+                        self.scrowView.backgroundColor=[UIColor colorWithPatternImage:[UIImage imageNamed:@"iphoneBak1.png"]];
+                    }
+                    
                     UIButton *button=[UIButton buttonWithType:UIButtonTypeCustom];
                     [button setBackgroundImage:[UIImage imageNamed:@"iphone_button.png"] forState:UIControlStateNormal];
                     [button setBackgroundImage:[UIImage imageNamed:@"iphone_button_touched.png"] forState:UIControlEventTouchDown];
+                    
                     button.frame=CGRectMake(40, i*(25+50)+50, 240, 50);
                     
                     button.titleLabel.text=[NSString stringWithUTF8String:(char *)sqlite3_column_text(statment2, 1)];
@@ -254,8 +274,14 @@ else
 }
 - (IBAction)toSmallClass:(id)sender withTag:(int)tag{
     //NSLog(@"%@",[sender tag]);
-    smallClass *smallclass=[[smallClass alloc]init];
-    smallclass.title=[sender titleForState:UIControlStateNormal];
-    [self.navigationController pushViewController:smallclass animated:YES];
+    [self performSegueWithIdentifier:@"goSmall" sender:sender];
+    //smallClass *smallclass=[[smallClass alloc]init];
+    //smallclass.title=[sender titleForState:UIControlStateNormal];
+    //[self.navigationController pushViewController:smallclass animated:YES];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+     if ([segue.identifier isEqualToString:@"goSmall"]) {
+    smallClass *smallclass=[segue destinationViewController];
+         smallclass.title=[sender titleForState:UIControlStateNormal];}
 }
 @end

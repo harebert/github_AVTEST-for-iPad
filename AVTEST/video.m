@@ -12,6 +12,7 @@
 @synthesize videoInfo;
 @synthesize videoName,newVideoContent;
 @synthesize moviePlayer;
+@synthesize videoImageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,8 +35,18 @@
 
 - (void)viewDidLoad
 {
+    NSLog(@"!!!!!!!!!!!!!!!%@",newVideoContent);
      [super.navigationController setNavigationBarHidden:YES animated:TRUE];
     isflage=YES;
+    //先给videoimageview一个旋转轮，然后再给它赋值照片
+    videoImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_back.png"]];
+    
+    //下载视频图片
+    DownImage *newDown=[[DownImage alloc]init];
+    NSString *image_path=[newVideoContent.videoPath stringByReplacingOccurrencesOfString:@".m3u8" withString:@".jpg"];
+    newDown.imageUrl=[NSString stringWithFormat: @"http://teacher.sfls.cn/sflsapp/video/movie/images/%@",image_path];
+    [newDown setDelegate:self];
+    [newDown startDownload];
     
     videoName.text=newVideoContent.videoName;
     videoInfo.text=newVideoContent.videoInfo;
@@ -44,50 +55,78 @@
         NSLog(@"没有介绍");
     }
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
-        UIImageView *videobackImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"videoback_iphone.png"]];
-        videobackImageView.frame=self.view.frame;//CGRectMake(0, 0, 320, 480);
+        if ([UIScreen mainScreen].bounds.size.height==568.f) {//iphone5
+            NSLog(@"this is iphone5");
+            UIImageView *videobackImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"videoback_iphone.png"]];
+            videobackImageView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+            UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(5, 90, 165, 30)];
+            CGAffineTransform ro=CGAffineTransformMakeRotation(-M_PI/9);
+            [titleLabel setTransform:ro];
+            titleLabel.text=self.title;
+            titleLabel.backgroundColor=[UIColor clearColor];
+            [titleLabel setTextAlignment:UITextAlignmentCenter];
+            
+            UILabel *contentLabel=[[UILabel alloc]initWithFrame:CGRectMake(30, 150, 250, 180)];
+            contentLabel.text=newVideoContent.videoInfo;
+            [contentLabel setLineBreakMode:UILineBreakModeWordWrap];
+            contentLabel.numberOfLines=5;
+            [contentLabel setBackgroundColor:[UIColor clearColor]];
+            int scaleimage=20;
+            videoImageView.frame=CGRectMake(20, 310, 6.85*scaleimage, 5.18*scaleimage);
+            UIActivityIndicatorView *downLoadingIndicator=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            downLoadingIndicator.frame=CGRectMake(6.5*scaleimage/2-10, 5.18*scaleimage/2-10, 20, 20);
+            [downLoadingIndicator startAnimating];
+            [videoImageView addSubview:downLoadingIndicator];
+            UIButton *viewButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [viewButton setTitle:@"点击观看" forState:UIControlStateNormal];
+            viewButton.frame=CGRectMake(165, 423, 90, 30);
+            [viewButton setTransform:ro];
+            [viewButton addTarget:self action:@selector(clickToPlay:) forControlEvents:UIControlEventTouchUpInside];
+            
+            [[self.view viewWithTag:1] addSubview:videobackImageView];
+            [self.view addSubview:titleLabel];
+            [self.view addSubview:contentLabel];
+            [self.view addSubview:viewButton];
+            [self.view addSubview:videoImageView];
+        }
+        else
+        {//iphone4
+            UIImageView *videobackImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"videoback_iphone.png"]];
+            videobackImageView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
+            UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(10, 70, 165, 30)];
+            CGAffineTransform ro=CGAffineTransformMakeRotation(-M_PI/10.5);
+            [titleLabel setTransform:ro];
+            titleLabel.text=self.title;
+            titleLabel.backgroundColor=[UIColor clearColor];
+            [titleLabel setTextAlignment:UITextAlignmentCenter];
     
-        UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(10, 70, 165, 30)];
-        CGAffineTransform ro=CGAffineTransformMakeRotation(-M_PI/10.5);
-        [titleLabel setTransform:ro];
-        titleLabel.text=self.title;
-        titleLabel.backgroundColor=[UIColor clearColor];
-        [titleLabel setTextAlignment:UITextAlignmentCenter];
+            UILabel *contentLabel=[[UILabel alloc]initWithFrame:CGRectMake(30, 150, 250, 180)];
+            contentLabel.text=newVideoContent.videoInfo;
+            [contentLabel setLineBreakMode:UILineBreakModeWordWrap];
+            contentLabel.numberOfLines=5;
+            [contentLabel setBackgroundColor:[UIColor clearColor]];
+            int scaleimage=20;
+            videoImageView.frame=CGRectMake(20, 310, 6.85*scaleimage, 5.18*scaleimage);
+            UIActivityIndicatorView *downLoadingIndicator=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+            downLoadingIndicator.frame=CGRectMake(6.5*scaleimage/2-10, 5.18*scaleimage/2-10, 20, 20);
+            [downLoadingIndicator startAnimating];
+            [videoImageView addSubview:downLoadingIndicator];
+            UIButton *viewButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
+            [viewButton setTitle:@"点击观看" forState:UIControlStateNormal];
+            viewButton.frame=CGRectMake(165, 353, 90, 30);
+            [viewButton setTransform:ro];
+            [viewButton addTarget:self action:@selector(clickToPlay:) forControlEvents:UIControlEventTouchUpInside];
     
-        UILabel *contentLabel=[[UILabel alloc]initWithFrame:CGRectMake(30, 150, 250, 180)];
-        contentLabel.text=newVideoContent.videoInfo;
-        [contentLabel setLineBreakMode:UILineBreakModeWordWrap];
-        contentLabel.numberOfLines=5;
-        [contentLabel setBackgroundColor:[UIColor clearColor]];
-        
-        UIImageView *imageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_back.png"]];
-        imageView.backgroundColor=[UIColor clearColor];
-        int scaleimage=20;
-        imageView.frame=CGRectMake(20, 310, 6.85*scaleimage, 5.18*scaleimage);
-        NSString *image_path=[newVideoContent.videoPath stringByReplacingOccurrencesOfString:@".m3u8" withString:@".jpg"];
-        NSLog(@"data:%@",image_path);
-        NSData *image_data=[[NSData alloc]initWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat: @"http://teacher.sfls.cn/sflsapp/video/movie/images/%@",image_path]]];
-        UIImage *video_image=[UIImage imageWithData:image_data];
-        UIImageView *video_image_view=[[UIImageView alloc]initWithImage:video_image];
-        video_image_view.frame=CGRectMake(8, 8, 6.01*scaleimage, 4.01*scaleimage);
-        [imageView addSubview:video_image_view];
-        
-        
-        UIButton *viewButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-        [viewButton setTitle:@"点击观看" forState:UIControlStateNormal];
-        viewButton.frame=CGRectMake(165, 353, 90, 30);
-        [viewButton setTransform:ro];
-        [viewButton addTarget:self action:@selector(clickToPlay:) forControlEvents:UIControlEventTouchUpInside];
-    
-        [self.view addSubview:videobackImageView];
-        [self.view addSubview:titleLabel];
-        [self.view addSubview:contentLabel];
-        [self.view addSubview:viewButton];
-        [self.view addSubview:imageView];
+            [[self.view viewWithTag:1] addSubview:videobackImageView];
+            [self.view addSubview:titleLabel];
+            [self.view addSubview:contentLabel];
+            [self.view addSubview:viewButton];
+            [self.view addSubview:videoImageView];
+            }
     }
     else{
         UIImageView *videobackImageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"videoback_ipad.png"]];
-        videobackImageView.frame=self.view.frame;//CGRectMake(0, 0, 320, 480);
+       videobackImageView.frame=CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height);
         
         UILabel *titleLabel=[[UILabel alloc]initWithFrame:CGRectMake(180, 130, 335, 80)];
         CGAffineTransform ro=CGAffineTransformMakeRotation(-M_PI/30);
@@ -96,14 +135,16 @@
         [titleLabel setFont:[UIFont systemFontOfSize:40]];
         titleLabel.backgroundColor=[UIColor clearColor];
         [titleLabel setTextAlignment:UITextAlignmentCenter];
-        
+                
         UILabel *contentLabel=[[UILabel alloc]initWithFrame:CGRectMake(180, 290, 450, 400)];
         contentLabel.text=newVideoContent.videoInfo;
+        
         [contentLabel setLineBreakMode:UILineBreakModeWordWrap];
         contentLabel.numberOfLines=5;
         [contentLabel setBackgroundColor:[UIColor clearColor]];
         [contentLabel setFont:[UIFont systemFontOfSize:30]];
         
+        /*
         UIImageView *imageView=[[UIImageView alloc]initWithImage:[UIImage imageNamed:@"image_back.png"]];
         imageView.backgroundColor=[UIColor clearColor];
         int scaleimage=40;
@@ -115,7 +156,13 @@
         UIImageView *video_image_view=[[UIImageView alloc]initWithImage:video_image];
         video_image_view.frame=CGRectMake(17, 17, 6.01*scaleimage, 4.01*scaleimage);
         [imageView addSubview:video_image_view];
-
+         */
+        int scaleimage=40;
+        videoImageView.frame=CGRectMake(80, 700, 6.85*scaleimage, 5.18*scaleimage);
+        UIActivityIndicatorView *downLoadingIndicator=[[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhite];
+        downLoadingIndicator.frame=CGRectMake(6.5*scaleimage/2-10, 5.18*scaleimage/2-10, 20, 20);
+        [downLoadingIndicator startAnimating];
+        [videoImageView addSubview:downLoadingIndicator];
         
         UIButton *viewButton=[UIButton buttonWithType:UIButtonTypeRoundedRect];
         [viewButton setTitle:@"点击观看" forState:UIControlStateNormal];
@@ -124,11 +171,13 @@
         [viewButton addTarget:self action:@selector(clickToPlay:) forControlEvents:UIControlEventTouchUpInside];
         [viewButton setFont:[UIFont systemFontOfSize:40]];
         
+       
         [self.view addSubview:videobackImageView];
-        [self.view addSubview:titleLabel];
+        
         [self.view addSubview:contentLabel];
         [self.view addSubview:viewButton];
-        [self.view addSubview:imageView];
+        [self.view addSubview:titleLabel];
+        [self.view addSubview:videoImageView];
     }
     UIBarButtonItem *goToComment=[[UIBarButtonItem alloc]initWithTitle:@"评论" style:UIBarButtonItemStyleBordered target:self action:@selector(goComment)];
     
@@ -250,8 +299,33 @@
 }
 
 -(void)goComment{
-    videoComment *newComment=[[videoComment alloc]init];
+    [self performSegueWithIdentifier:@"goComment" sender:self];
+    //[self.navigationController pushViewController:newComment animated:YES];
+}
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    videoComment *newComment=[segue destinationViewController];
     newComment.thenewVideoContent=self.newVideoContent;
-    [self.navigationController pushViewController:newComment animated:YES];
+}
+
+#pragma downloadimage protacal
+-(void)appImageDidLoad:(NSInteger)indexTag urlImage:(NSString *)imageUrl imageName:(NSString *)imageName{
+    UIImageView *newImageView=[[UIImageView alloc]initWithImage:[UIImage imageWithContentsOfFile:imageUrl]];
+    NSLog(@"this is download image address %@",imageUrl);
+    
+     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+    newImageView.frame=CGRectMake(videoImageView.frame.origin.x+8 , videoImageView.frame.origin.y+8, videoImageView.frame.size.width-18, videoImageView.frame.size.height-24);
+     }
+     else{
+    newImageView.frame=CGRectMake(videoImageView.frame.origin.x+17 , videoImageView.frame.origin.y+17, videoImageView.frame.size.width-34, videoImageView.frame.size.height-47);
+     }
+    newImageView.layer.opacity=0;
+    [self.view addSubview:newImageView];
+    CGContextRef context = UIGraphicsGetCurrentContext();
+    [UIView beginAnimations:nil context:context];
+    [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+    [UIView setAnimationDuration:1.0];
+    newImageView.layer.opacity=1;
+    [UIView commitAnimations];
+    
 }
 @end

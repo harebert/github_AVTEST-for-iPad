@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="LOW-vk-Wno">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
+    </dependencies>
+    <scenes>
+        <!--Navigation Controller-->
+        <scene sceneID="ouU-Oa-0Bc">
+            <objects>
+                <navigationController definesPresentationContext="YES" id="LOW-vk-Wno" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="vxW-Ei-Tlx">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="OBD-jg-yW2" kind="relationship" relationship="rootViewController" id="izO-zh-Q9f"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5Rz-oz-Ly8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="64" y="113"/>
+        </scene>
+        <!--Big Class-->
+        <scene sceneID="MS5-fd-Z4p">
+            <objects>
+                <viewController id="OBD-jg-yW2" customClass="bigClass" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="PmX-NQ-kGm">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="S3i-hO-fJn">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="zAn-J5-Dvj"/>
+                    <connections>
+                        <outlet property="scrowView" destination="S3i-hO-fJn" id="CcN-PR-qwm"/>
+                        <segue destination="lyy-OL-lYf" kind="push" identifier="goSmall" id="IvF-Wr-JX7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5oG-HQ-E8G" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="492" y="112"/>
+        </scene>
+        <!--Small Class-->
+        <scene sceneID="fgR-sv-aT4">
+            <objects>
+                <tableViewController id="lyy-OL-lYf" customClass="smallClass" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="60" sectionHeaderHeight="22" sectionFooterHeight="22" id="kdU-5B-g6c">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="smallCell" rowHeight="60" id="FqT-TT-cMU">
+                                <rect key="frame" x="0.0" y="22" width="320" height="60"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="59"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="fVJ-kK-Y97">
+                                            <rect key="frame" x="100" y="11" width="200" height="38"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" id="hJE-wk-Axm">
+                                            <rect key="frame" x="10" y="5" width="70" height="50"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="ivt-BM-Rfb" kind="push" identifier="goList" id="n9h-uJ-Os0"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lyy-OL-lYf" id="1S6-AF-mU1"/>
+                            <outlet property="delegate" destination="lyy-OL-lYf" id="QvR-XE-bXk"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="nXz-C3-u3L"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tBO-I7-hGJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="909" y="112"/>
+        </scene>
+        <!--Video List-->
+        <scene sceneID="OnX-kh-P84">
+            <objects>
+                <tableViewController id="ivt-BM-Rfb" customClass="videoList" sceneMemberID="viewController">
+                    <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="65" sectionHeaderHeight="22" sectionFooterHeight="22" id="ff1-Lf-Jtw">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="listCell" rowHeight="65" id="kJl-5Z-qUQ">
+                                <rect key="frame" x="0.0" y="22" width="320" height="65"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="300" height="64"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="J6k-di-FIZ">
+                                            <rect key="frame" x="90" y="20" width="280" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" tag="2" contentMode="scaleToFill" id="v22-0G-i4X">
+                                            <rect key="frame" x="7" y="4" width="70" height="55"/>
+                                        </imageView>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="7H0-jF-QBn" kind="push" identifier="goVideo" id="2hO-Wm-YvF"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="ivt-BM-Rfb" id="JbE-M2-WID"/>
+                            <outlet property="delegate" destination="ivt-BM-Rfb" id="8Yv-1y-tBH"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="bPV-g5-EfH"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="azM-M4-lSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1327" y="113"/>
+        </scene>
+        <!--Video-->
+        <scene sceneID="D04-98-ceS">
+            <objects>
+                <viewController id="7H0-jF-QBn" customClass="video" sceneMemberID="viewController">
+                    <view key="view" multipleTouchEnabled="YES" tag="1" contentMode="scaleToFill" id="fcU-uc-fGg">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" minimumFontSize="10" enabled="NO" id="m86-jx-Ni5">
+                                <rect key="frame" x="40" y="242" width="237" height="21"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" staticText="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5Gf-7d-PSH">
+                                <rect key="frame" x="40" y="310" width="166" height="37"/>
+                                <fontDescription key="fontDescription" name="STHeitiSC-Medium" family="Heiti SC" pointSize="15"/>
+                                <state key="normal" title="点击播放">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickToPlay:" destination="7H0-jF-QBn" eventType="touchUpInside" id="Itt-k8-Bot"/>
+                                </connections>
+                            </button>
+                            <textView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" id="K4b-Hk-RIN">
+                                <rect key="frame" x="40" y="44" width="240" height="128"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                                </accessibility>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences" autocorrectionType="no"/>
+                            </textView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <accessibility key="accessibilityConfiguration">
+                            <accessibilityTraits key="traits" none="YES" notEnabled="YES"/>
+                        </accessibility>
+                    </view>
+                    <navigationItem key="navigationItem" id="odK-Za-h80"/>
+                    <connections>
+                        <outlet property="videoInfo" destination="K4b-Hk-RIN" id="x0y-4q-7oq"/>
+                        <outlet property="videoName" destination="m86-jx-Ni5" id="wuo-9Q-H69"/>
+                        <segue destination="9o0-pb-hGd" kind="push" identifier="goComment" id="5Y1-Vh-r3l"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="k93-O9-Ykn" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1798" y="118"/>
+        </scene>
+        <!--Video Comment-->
+        <scene sceneID="v8c-Os-cHy">
+            <objects>
+                <viewController id="9o0-pb-hGd" customClass="videoComment" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="tc1-xJ-ZJX">
+                        <rect key="frame" x="0.0" y="64" width="320" height="416"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="zDM-hW-izI">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell userInteractionEnabled="NO" contentMode="scaleToFill" restorationIdentifier="commentCell" selectionStyle="blue" indentationWidth="10" reuseIdentifier="commentCell" id="tzU-tm-aHh">
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="1" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NaY-Sp-QGl">
+                                                    <rect key="frame" x="14" y="2" width="306" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="2" contentMode="left" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mvW-Ph-6xP">
+                                                    <rect key="frame" x="40" y="21" width="260" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.23000000000000001" colorSpace="calibratedRGB"/>
+                                                    <color key="highlightedColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </label>
+                                            </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        </view>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="c8u-2x-SJ2"/>
+                    <connections>
+                        <outlet property="commentTableView2" destination="zDM-hW-izI" id="rE2-vB-8iG"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wCU-V8-RvO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2222" y="118"/>
+        </scene>
+    </scenes>
+    <classes>
+        <class className="bigClass" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/bigClass.h"/>
+            <relationships>
+                <relationship kind="action" name="toSmallClass:withTag:"/>
+                <relationship kind="outlet" name="scrowView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="smallClass" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/smallClass.h"/>
+        </class>
+        <class className="video" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/video.h"/>
+            <relationships>
+                <relationship kind="action" name="clickToPlay:"/>
+                <relationship kind="action" name="stopPlayingVideo:"/>
+                <relationship kind="outlet" name="videoInfo" candidateClass="UITextView"/>
+                <relationship kind="outlet" name="videoName" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="videoComment" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/videoComment.h"/>
+            <relationships>
+                <relationship kind="outlet" name="commentTableView2" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="videoList" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/videoList.h"/>
+        </class>
+    </classes>
+    <simulatedMetricsContainer key="defaultSimulatedMetrics">
+        <simulatedStatusBarMetrics key="statusBar"/>
+        <simulatedOrientationMetrics key="orientation"/>
+        <simulatedScreenMetrics key="destination"/>
+    </simulatedMetricsContainer>
+</document>

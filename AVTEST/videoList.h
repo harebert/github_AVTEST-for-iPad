@@ -10,7 +10,8 @@
 #import "XMLDocument.h"
 #import "XMLelement.h"
 #import "sqlite3.h"
-@interface videoList : UITableViewController<XMLDocumentDelegate>{
+#import "DownImage.h"
+@interface videoList : UITableViewController<XMLDocumentDelegate,DownloaderDelegate>{
     XMLDocument *xmlDocument;
     NSMutableArray *listOfVideo;
     NSMutableArray *videoContentList;//包含一个个video的实例
@@ -20,6 +21,7 @@
     NSString *dataFilePath;
     NSString *bigClassName;
     NSString *smallClassName;
+    UIActivityIndicatorView *loadingImage;
 }
 @property(nonatomic,retain)XMLDocument *xmlDocument;
 @property(nonatomic,retain)NSMutableArray *listOfVideo;

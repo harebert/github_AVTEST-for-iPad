@@ -8,6 +8,7 @@
 
 #import "smallClass.h"
 #import "videoList.h"
+#import <QuartzCore/QuartzCore.h>
 @implementation smallClass
 @synthesize xmlDocument,smallClassList,databaseExisted,dataFilePath,bigClassName;
 #pragma theXmlParser
@@ -193,21 +194,34 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"smallCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+    
         
-        cell.textLabel.text=[self.smallClassList objectAtIndex:[indexPath row] ];
-       
-        //[tempelement release];
+        UILabel *newTextLabel=(UILabel *)[cell viewWithTag:1];
+        newTextLabel.text=[self.smallClassList objectAtIndex:[indexPath row] ];
+        UIImageView *smallClassImage=(UIImageView *)[cell viewWithTag:2];
+    smallClassImage.image=[UIImage imageNamed:@"smallClassbak.png"];
+    smallClassImage.layer.borderColor=[UIColor grayColor].CGColor;
+    smallClassImage.layer.borderWidth=3;
+    smallClassImage.layer.cornerRadius=3;
+    [smallClassImage.layer setMasksToBounds:YES];
+    
+    
+    DownImage *newImageDownload=[[DownImage alloc]init];
+    [newImageDownload setDelegate:self];
+    newImageDownload.imageUrl=[[NSString stringWithFormat:@"http://teacher.sfls.cn/sflsapp/video/movie/smallclassimages/%@.png", [self.smallClassList objectAtIndex:[indexPath row]]] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding] ;
+    NSLog(@"downloadimageurl is %@",newImageDownload.imageUrl);
+    newImageDownload.imageViewIndex=indexPath.row;
+    [newImageDownload startDownload];
+    //[tempelement release];
         return cell;
-    }
+    
     
     // Configure the cell...
     
-    return cell;
+    
 }
 
 /*
@@ -253,15 +267,47 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    //[self performSegueWithIdentifier:@"goList" sender:indexPath];
     //XMLelement *tempelement=[self.smallClassList objectAtIndex:[indexPath row]];
-    videoList *newVideoList=[[videoList alloc]init];
-    //newVideoList.mySmallClass=tempelement.text;
-    newVideoList.title=[self.smallClassList objectAtIndex:[indexPath row]];
-    newVideoList.bigClassName=self.bigClassName;
-    newVideoList.smallClassName=[self.smallClassList objectAtIndex:[indexPath row]];
-    [self.navigationController pushViewController:newVideoList animated:YES];
+    //    [self.navigationController pushViewController:newVideoList animated:YES];
+    
+    
+    
+    
     
 }
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    if ([segue.identifier isEqualToString:@"goList"]) {
+        
+        videoList *newVideoList=[segue destinationViewController];
+        newVideoList.title=[self.smallClassList objectAtIndex:[self.tableView indexPathForCell:sender ].row];
+        newVideoList.bigClassName=self.bigClassName;
+        newVideoList.smallClassName=[self.smallClassList objectAtIndex:[self.tableView indexPathForCell:sender ].row];
+   // 
+    
+    
+    }
+}
 
-
+-(void)appImageDidLoad:(NSInteger)indexTag urlImage:(NSString *)imageUrl imageName:(NSString *)imageName{
+    NSLog(@"imageurl is %@",imageUrl);
+    NSIndexPath *newIndexPath=[NSIndexPath indexPathForRow:indexTag inSection:0];
+    UITableViewCell *newCell=[self.tableView cellForRowAtIndexPath:newIndexPath];
+    UIImageView *newImageView=(UIImageView *)[newCell viewWithTag:2];
+    UILabel *newLabel=(UILabel *)[newCell viewWithTag:1];
+    NSString *cellImageName=[[NSString stringWithFormat:@"%@.png",newLabel.text] stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSLog(@"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!cellimagename:%@;downimagename:%@",cellImageName,imageName);
+    NSLog(@"%@",[[NSFileManager defaultManager]attributesOfItemAtPath:imageUrl error:nil]);
+    if ((int)[[[NSFileManager defaultManager]attributesOfItemAtPath:imageUrl error:nil] objectForKey:@"NSFileSize"]!=5128) {
+        newImageView.image=[UIImage imageWithContentsOfFile:imageUrl];
+        newImageView.layer.opacity=0;
+        CGContextRef context = UIGraphicsGetCurrentContext();
+        [UIView beginAnimations:nil context:context];
+        [UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
+        [UIView setAnimationDuration:1.0];
+        newImageView.layer.opacity=1;
+        [UIView commitAnimations];
+        
+    }
+}
 @end

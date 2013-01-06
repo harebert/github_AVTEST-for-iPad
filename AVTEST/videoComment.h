@@ -18,6 +18,7 @@
     NSMutableArray *commentArray;
     UITableViewController *commentTableView;
     NSString *username;
+    IBOutlet UITableView *commentTableView2;
     
 }
 @property(nonatomic,retain)videoContent *thenewVideoContent;

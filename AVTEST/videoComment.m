@@ -19,7 +19,7 @@
     commentArray=[[NSMutableArray alloc]init];
     commentArray= self.xmlDocument.rootElement.children;
     NSLog(@"%@",[commentArray componentsJoinedByString:@"|"]);
-    [commentTableView.tableView reloadData];
+    [commentTableView2 reloadData];
     
 }
 
@@ -51,14 +51,34 @@
     //
     float x1,y1,w1,h1,x2,y2,w2,h2,x3,y3,w3,h3,x4,y4,w4,h4;
     if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPhone) {
+        if ([UIScreen mainScreen].bounds.size.height==568.f) {//iphone5
+            x1=0;
+            y1=376+88;
+            w1=320;
+            h1=40;
+            x2=0;
+            y2=20;
+            w2=320;
+            h2=367+88;
+            x3=5;
+            y3=5;
+            w3=230;
+            h3=30;
+            x4=250;
+            y4=5;
+            w4=50;
+            h4=30;
+
+        }
+        else{
         x1=0;
         y1=376;
         w1=320;
         h1=40;
         x2=0;
-        y2=0;
+        y2=20;
         w2=320;
-        h2=510;
+        h2=367;
         x3=5;
         y3=5;
         w3=230;
@@ -67,13 +87,15 @@
         y4=5;
         w4=50;
         h4=30;
+        }
     }
     else{
+        
         x1=0;
         y1=902;
         w1=768;
         h1=40;
-        x2=0;
+        x2=20;     
         y2=0;
         w2=768;
         h2=1024-64-40;
@@ -87,11 +109,12 @@
         h4=30;
         
     }
-    commentTableView=[[UITableViewController alloc]init];
-    commentTableView.view.frame=CGRectMake(x2, y2, w2, h2);
-    [commentTableView.tableView setDelegate:self];
-    [commentTableView.tableView setDataSource:self];
-    [self.view addSubview:commentTableView.view];
+    //commentTableView=[[UITableViewController alloc]init];
+    //commentTableView2=[[UITableView alloc]init];
+    commentTableView2.frame=CGRectMake(x2, y2, w2, h2);
+    [commentTableView2 setDelegate:self];
+    [commentTableView2 setDataSource:self];
+    //[self.view addSubview:commentTableView2];
     
     commentTextBack=[[UIView alloc]initWithFrame:CGRectMake(x1, y1, w1, h1)];
     commentTextBack.backgroundColor=[UIColor underPageBackgroundColor];
@@ -109,7 +132,7 @@
     [commentTextBack addSubview:submitButton];
     [commentTextBack addSubview:commentText];
     
-    
+    [self.view addSubview:commentTableView2];
     [self.view addSubview:commentTextBack];
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
@@ -197,30 +220,30 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"commentCell";
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier] autorelease];
-        [cell setSelectionStyle:UITableViewCellEditingStyleNone];//设置不被选中
+   
+       // cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:CellIdentifier];
+        //[cell setSelectionStyle:UITableViewCellEditingStyleNone];//设置不被选中
+    
         XMLelement *newXMlElement;
         newXMlElement=[self.commentArray objectAtIndex:[indexPath row]];
         XMLelement *commentElement;
         commentElement=[newXMlElement.children objectAtIndex:0];
         XMLelement *usernameElement;
         usernameElement=[newXMlElement.children objectAtIndex:1];
-        
-        cell.textLabel.text=commentElement.text;
-        cell.detailTextLabel.text=usernameElement.text;
+        UILabel *newLabel1=(UILabel *)[cell viewWithTag:1];
+        UILabel *newLabel2=(UILabel *)[cell viewWithTag:2];
+    
+        newLabel1.text=[NSString stringWithFormat:@"-%@",commentElement.text];
+        newLabel2.text=[NSString stringWithFormat:@"by:%@",usernameElement.text];
         
         NSLog(@"asdfasdfasdfasdf%@",commentElement.text);
         //[tempelement release];
+    cell.backgroundColor=[UIColor blackColor];
         return cell;
-    }
-    
-    // Configure the cell...
-    
-    return cell;
+
 }
 -(void)scrollViewDidScroll:(UIScrollView *)scrollView{
     [commentText resignFirstResponder];
@@ -268,5 +291,14 @@
         
         
     }
+}
+- (void)dealloc {
+    [commentTableView2 release];
+    [super dealloc];
+}
+- (void)viewDidUnload {
+    [commentTableView2 release];
+    commentTableView2 = nil;
+    [super viewDidUnload];
 }
 @end
